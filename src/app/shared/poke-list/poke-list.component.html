@@ -1,12 +1,20 @@
-<a class="pokemon">
-  <div class="pokemon-props">
-    <h2>Bulbasaur</h2>
-    <ul>
-      <li>Grass</li>
-      <li>Poison</li>
-    </ul>
-  </div>
-  <div class="pokemon-image">
-    <img src="assets/images/example.png" alt="Bulbasaur" />
-  </div>
-</a>
+<ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
+  <a class="pokemon" *ngIf="pokemon.props">
+    <div class="pokemon-props">
+      <h2>
+        <span>{{ pokemon.props.id }}.</span>{{ pokemon.name }}
+      </h2>
+      <ul>
+        <li *ngFor="let value of pokemon.props.types">
+          {{ value.type.name }}
+        </li>
+      </ul>
+    </div>
+    <div class="pokemon-image">
+      <img
+        [src]="pokemon.props.sprites.other.dream_world.front_default"
+        [alt]="pokemon.name"
+      />
+    </div>
+  </a>
+</ng-template>

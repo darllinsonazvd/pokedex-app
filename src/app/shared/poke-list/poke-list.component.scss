@@ -11,18 +11,26 @@
     position: relative;
     display: flex;
     width: calc(49% - rem-calc(40));
-    height: rem-calc(120);
+    height: rem-calc(110);
     margin-bottom: rem-calc(12);
     padding: rem-calc(20);
     border-radius: rem-calc(10);
     background: $white;
+    transition: all 0.3s;
 
     &-props {
       h2 {
         margin-bottom: rem-calc(10);
         font-size: rem-calc(24);
         font-weight: 800;
+        text-transform: capitalize;
         color: $text-color;
+
+        span {
+          margin-right: rem-calc(4);
+          font-size: rem-calc(14);
+          color: $gray;
+        }
       }
 
       ul {
@@ -36,8 +44,9 @@
           width: rem-calc(60);
           padding: rem-calc(5);
           margin-bottom: rem-calc(5);
-          font-size: rem-calc(14);
           border-radius: rem-calc(50);
+          font-size: rem-calc(14);
+          text-transform: capitalize;
           color: $text-color;
           background: $gray-alt;
         }
@@ -56,7 +65,13 @@
 
       img {
         width: rem-calc(80);
+        max-height: rem-calc(80);
       }
+    }
+
+    &:hover {
+      cursor: pointer;
+      transform: translateY(rem-calc(-5));
     }
   }
 }
