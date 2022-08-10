@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./scss/reset.scss";
+@use "./scss/rem-calc.scss";
+
+@import "./scss/variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+html {
+  font-family: "Inter", sans-serif;
+  background: $primary-color;
+}
+
+main {
+  max-width: rem-calc(600);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
