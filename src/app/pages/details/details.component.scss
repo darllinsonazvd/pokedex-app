@@ -61,6 +61,8 @@
         }
 
         ol {
+          margin-bottom: rem-calc(16);
+
           li {
             display: flex;
             justify-content: space-between;
@@ -76,17 +78,19 @@
       }
     }
 
-    @media (max-width: 375px) {
-      margin-top: rem-calc(10);
+    @media (max-width: 768px) {
+      padding: 0 rem-calc(10);
+    }
 
+    @media (max-width: 375px) {
       .pokemon-names {
         h1 {
-          font-size: rem-calc(20);
+          font-size: rem-calc(30);
         }
 
         h2 {
-          top: rem-calc(35);
-          font-size: rem-calc(20);
+          top: rem-calc(38);
+          font-size: rem-calc(28);
         }
       }
 
