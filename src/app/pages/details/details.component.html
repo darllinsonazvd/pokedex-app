@@ -1,1 +1,31 @@
-<p>details works!</p>
+<!-- Header -->
+<app-header></app-header>
+
+<main>
+  <div class="pokemon-names">
+    <h1>{{ pokemon[0].name }}</h1>
+    <h2>{{ pokemon[1].names[0].name }}</h2>
+  </div>
+
+  <div class="pokemon-props">
+    <img
+      [src]="pokemon[0].sprites.other.dream_world.front_default"
+      [alt]="pokemon[0].name"
+    />
+
+    <article class="pokemon-props-statistics">
+      <div>
+        <h3>Estatísticas</h3>
+
+        <ol>
+          <li *ngFor="let value of pokemon[0].stats">
+            {{ value.stat.name }}
+            <strong>{{ value.base_stat }}</strong>
+          </li>
+        </ol>
+      </div>
+
+      <a [routerLink]="['/']" class="btn btn-secondary">Voltar</a>
+    </article>
+  </div>
+</main>
