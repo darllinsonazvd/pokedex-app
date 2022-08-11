@@ -1,20 +1,29 @@
-<ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
-  <a class="pokemon" *ngIf="pokemon.props">
-    <div class="pokemon-props">
-      <h2>
-        <span>{{ pokemon.props.id }}.</span>{{ pokemon.name }}
-      </h2>
-      <ul>
-        <li *ngFor="let value of pokemon.props.types">
-          {{ value.type.name }}
-        </li>
-      </ul>
-    </div>
-    <div class="pokemon-image">
-      <img
-        [src]="pokemon.props.sprites.other.dream_world.front_default"
-        [alt]="pokemon.name"
-      />
-    </div>
-  </a>
-</ng-template>
+<!-- Search -->
+<app-search (emitSearch)="getSearch($event)"></app-search>
+
+<div class="container">
+  <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
+    <a
+      class="pokemon"
+      [routerLink]="['details', pokemon.props.id]"
+      *ngIf="pokemon.props"
+    >
+      <div class="pokemon-props">
+        <h2>
+          <span>{{ pokemon.props.id }}.</span>{{ pokemon.name }}
+        </h2>
+        <ul>
+          <li *ngFor="let value of pokemon.props.types">
+            {{ value.type.name }}
+          </li>
+        </ul>
+      </div>
+      <div class="pokemon-image">
+        <img
+          [src]="pokemon.props.sprites.other.dream_world.front_default"
+          [alt]="pokemon.name"
+        />
+      </div>
+    </a>
+  </ng-template>
+</div>

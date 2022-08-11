@@ -2,76 +2,93 @@
 @import "../../../scss/rem-calc.scss";
 
 :host {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: rem-calc(20);
-
-  .pokemon {
-    position: relative;
+  .container {
     display: flex;
-    width: calc(49% - rem-calc(40));
-    height: rem-calc(110);
-    margin-bottom: rem-calc(12);
-    padding: rem-calc(20);
-    border-radius: rem-calc(10);
-    background: $white;
-    transition: all 0.3s;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: rem-calc(20);
 
-    &-props {
-      h2 {
-        margin-bottom: rem-calc(10);
-        font-size: rem-calc(24);
-        font-weight: 800;
-        text-transform: capitalize;
-        color: $text-color;
+    .pokemon {
+      position: relative;
+      display: flex;
+      width: calc(100% - rem-calc(40));
+      height: rem-calc(110);
+      margin-bottom: rem-calc(12);
+      padding: rem-calc(20);
+      border-radius: rem-calc(10);
+      transition: all 0.3s;
+      text-decoration: none;
+      color: $text-color;
+      background: $white;
 
-        span {
-          margin-right: rem-calc(4);
-          font-size: rem-calc(14);
-          color: $gray;
-        }
-      }
-
-      ul {
-        display: flex;
-        flex-direction: column;
-
-        li {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: rem-calc(60);
-          padding: rem-calc(5);
-          margin-bottom: rem-calc(5);
-          border-radius: rem-calc(50);
-          font-size: rem-calc(14);
+      &-props {
+        h2 {
+          margin-bottom: rem-calc(10);
+          font-size: rem-calc(24);
+          font-weight: 800;
           text-transform: capitalize;
           color: $text-color;
-          background: $gray-alt;
+
+          span {
+            margin-right: rem-calc(4);
+            font-size: rem-calc(14);
+            color: $gray;
+          }
+        }
+
+        ul {
+          display: flex;
+          flex-direction: column;
+
+          li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: rem-calc(60);
+            padding: rem-calc(5);
+            margin-bottom: rem-calc(5);
+            border-radius: rem-calc(50);
+            font-size: rem-calc(14);
+            text-transform: capitalize;
+            color: $text-color;
+            background: $gray-alt;
+          }
         }
       }
-    }
 
-    &-image {
-      position: absolute;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: rem-calc(90);
-      right: rem-calc(20);
-      bottom: rem-calc(20);
-      background: url("../../../assets/images/bg-pokemon.svg");
+      &-image {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: rem-calc(90);
+        right: rem-calc(20);
+        bottom: rem-calc(20);
+        background: url("../../../assets/images/bg-pokemon.svg");
 
-      img {
-        width: rem-calc(80);
-        max-height: rem-calc(80);
+        img {
+          width: rem-calc(80);
+          max-height: rem-calc(80);
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: translateY(rem-calc(-5));
       }
     }
+  }
+}
 
-    &:hover {
-      cursor: pointer;
-      transform: translateY(rem-calc(-5));
+@media (min-width: 426px) {
+  :host {
+    .container {
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      .pokemon {
+        width: calc(49% - rem-calc(40));
+      }
     }
   }
 }
