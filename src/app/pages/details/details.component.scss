@@ -41,6 +41,7 @@
         left: rem-calc(30);
         max-width: rem-calc(140);
         max-height: rem-calc(140);
+        z-index: 1;
       }
 
       &-statistics {

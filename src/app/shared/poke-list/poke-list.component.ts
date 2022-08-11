@@ -11,13 +11,21 @@ export class PokeListComponent implements OnInit {
   private setAllPokemons: any;
   public getAllPokemons: any;
 
+  public error: boolean = false;
+  public pokemonNotFound: boolean = false;
+
   constructor(private pokeApiService: PokeApiService) {}
 
   ngOnInit(): void {
-    this.pokeApiService.listAllPokemons.subscribe((res) => {
-      this.setAllPokemons = res.results;
-      this.getAllPokemons = this.setAllPokemons;
-    });
+    this.pokeApiService.listAllPokemons.subscribe(
+      (res) => {
+        this.setAllPokemons = res.results;
+        this.getAllPokemons = this.setAllPokemons;
+      },
+      (err) => {
+        this.error = true;
+      }
+    );
   }
 
   public getSearch(value: string) {
@@ -25,6 +33,12 @@ export class PokeListComponent implements OnInit {
       return !pokemon.name.indexOf(value.toLowerCase());
     });
 
-    this.getAllPokemons = filter;
+    if (filter == '') {
+      this.pokemonNotFound = true;
+      this.getAllPokemons = [];
+    } else {
+      this.pokemonNotFound = false;
+      this.getAllPokemons = filter;
+    }
   }
 }

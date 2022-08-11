@@ -78,6 +78,18 @@
       }
     }
   }
+
+  .not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: rem-calc(18);
+      font-weight: 800;
+      color: $white;
+    }
+  }
 }
 
 @media (min-width: 426px) {
@@ -88,6 +100,12 @@
 
       .pokemon {
         width: calc(49% - rem-calc(40));
+      }
+    }
+
+    .not-found {
+      h1 {
+        font-size: rem-calc(28);
       }
     }
   }
